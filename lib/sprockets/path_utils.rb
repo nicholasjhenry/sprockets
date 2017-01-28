@@ -108,7 +108,7 @@ module Sprockets
     #
     # Returns relative String path from `start` to `dest`
     def relative_path_from(start, dest)
-      start, dest = Pathname.new(start), Pathname.new(dest)
+      start, dest = Pathname.new(start), Pathname.new(dest || start)
       start = start.dirname unless start.directory?
       dest.relative_path_from(start).to_s
     end
